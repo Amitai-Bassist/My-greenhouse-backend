@@ -1,15 +1,13 @@
-const dbService = require('../../services/dbA.service')
+const { log } = require('../../middlewares/logger.middleware')
+const dbAService = require('../../services/dbA.service')
 const logger = require('../../services/logger.service')
 const utilService = require('../../services/util.service')
 const ObjectId = require('mongodb').ObjectId
 
-async function query(filterBy={txt:''}) {
+async function query() {
     try {
-        const criteria = {
-            vendor: { $regex: filterBy.txt, $options: 'i' }
-        }
-        const collection = await dbService.getCollection('task')
-        var dbAs = await collection.find(criteria).toArray()
+        const collection = await dbAService.getCollection('records')
+        var dbAs = await collection.find().toArray()
         return dbAs
     } catch (err) {
         logger.error('cannot find dbAs', err)
@@ -19,7 +17,7 @@ async function query(filterBy={txt:''}) {
 
 async function getById(dbAId) {
     try {
-        const collection = await dbService.getCollection('task')
+        const collection = await dbAService.getCollection('records')
         const dbA = collection.findOne({ _id: ObjectId(dbAId) })
         return dbA
     } catch (err) {
@@ -30,7 +28,7 @@ async function getById(dbAId) {
 
 async function remove(dbAId) {
     try {
-        const collection = await dbService.getCollection('task')
+        const collection = await dbAService.getCollection('records')
         await collection.deleteOne({ _id: ObjectId(dbAId) })
         return dbAId
     } catch (err) {
@@ -41,7 +39,7 @@ async function remove(dbAId) {
 
 async function add(dbA) {
     try {
-        const collection = await dbService.getCollection('task')
+        const collection = await dbAService.getCollection('records')
         await collection.insertOne(dbA)
         return dbA
     } catch (err) {
@@ -56,7 +54,7 @@ async function update(dbA) {
             vendor: dbA.vendor,
             price: dbA.price
         }
-        const collection = await dbService.getCollection('dbA')
+        const collection = await dbAService.getCollection('records')
         await collection.updateOne({ _id: ObjectId(dbA._id) }, { $set: dbAToSave })
         return dbA
     } catch (err) {
@@ -68,7 +66,7 @@ async function update(dbA) {
 async function addDbAMsg(dbAId, msg) {
     try {
         msg.id = utilService.makeId()
-        const collection = await dbService.getCollection('dbA')
+        const collection = await dbAService.getCollection('records')
         await collection.updateOne({ _id: ObjectId(dbAId) }, { $push: { msgs: msg } })
         return msg
     } catch (err) {
@@ -79,7 +77,7 @@ async function addDbAMsg(dbAId, msg) {
 
 async function removeDbAMsg(dbAId, msgId) {
     try {
-        const collection = await dbService.getCollection('dbA')
+        const collection = await dbAService.getCollection('records')
         await collection.updateOne({ _id: ObjectId(dbAId) }, { $pull: { msgs: {id: msgId} } })
         return msgId
     } catch (err) {

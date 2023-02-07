@@ -23,7 +23,6 @@ if (process.env.NODE_ENV === 'production') {
 
 const authRoutes = require('./api/auth/auth.routes')
 const userRoutes = require('./api/user/user.routes')
-const reviewRoutes = require('./api/review/review.routes')
 const dbARoutes = require('./api/dbA/dbA.routes')
 const dbBRoutes = require('./api/dbB/dbB.routes')
 const {setupSocketAPI} = require('./services/socket.service')
@@ -34,7 +33,6 @@ app.all('*', setupAsyncLocalStorage)
 
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
-app.use('/api/review', reviewRoutes)
 app.use('/api/dbA', dbARoutes)
 app.use('/api/dbB', dbBRoutes)
 setupSocketAPI(http)
@@ -48,7 +46,7 @@ app.get('/**', (req, res) => {
 
 
 const logger = require('./services/logger.service')
-const port = process.env.PORT || 3030
+const port = process.env.PORT || 3000
 http.listen(port, () => {
     logger.info('Server is running on port: ' + port)
 })
