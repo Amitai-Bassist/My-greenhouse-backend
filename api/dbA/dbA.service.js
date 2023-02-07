@@ -8,7 +8,7 @@ async function query() {
     try {
         const collection = await dbAService.getCollection('records')
         var dbAs = await collection.find().toArray()
-        return dbAs
+        return dbAs[0]
     } catch (err) {
         logger.error('cannot find dbAs', err)
         throw err

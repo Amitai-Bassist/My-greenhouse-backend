@@ -7,7 +7,7 @@ const router = express.Router()
 // middleware that is specific to this router
 // router.use(requireAuth)
 
-router.get('/', log, getDbAs)
+router.get('/', getDbAs)
 router.get('/:id', getDbAById)
 router.post('/', addDbA)
 router.put('/:id', updateDbA)

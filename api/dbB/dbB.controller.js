@@ -5,10 +5,7 @@ const logger = require('../../services/logger.service')
 async function getDbBs(req, res) {
   try {
     logger.debug('Getting DbBs')
-    const filterBy = {
-      txt: req.query.txt || ''
-    }
-    const dbBs = await dbBService.query(filterBy)
+    const dbBs = await dbBService.query()
     res.json(dbBs)
   } catch (err) {
     logger.error('Failed to get dbBs', err)

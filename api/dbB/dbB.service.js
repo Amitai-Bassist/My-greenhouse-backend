@@ -3,14 +3,11 @@ const logger = require('../../services/logger.service')
 const utilService = require('../../services/util.service')
 const ObjectId = require('mongodb').ObjectId
 
-async function query(filterBy={txt:''}) {
+async function query() {
     try {
-        const criteria = {
-            vendor: { $regex: filterBy.txt, $options: 'i' }
-        }
-        const collection = await dbService.getCollection('task')
-        var dbBs = await collection.find(criteria).toArray()
-        return dbBs
+        const collection = await dbService.getCollection('records')
+        var dbBs = await collection.find().toArray()
+        return dbBs[0]
     } catch (err) {
         logger.error('cannot find dbBs', err)
         throw err
