@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.30e07d4a.css",
+    "main.js": "/static/js/main.b5bfe384.js",
+    "static/js/787.64a45048.chunk.js": "/static/js/787.64a45048.chunk.js",
+    "static/media/bigScreen.png": "/static/media/bigScreen.310d88ad40b3d533f896.png",
+    "static/media/androidScreen.png": "/static/media/androidScreen.7d207a317988db323128.png",
+    "static/media/greenHouse.png": "/static/media/greenHouse.0555763158e2a8b2a4fc.png",
+    "index.html": "/index.html",
+    "main.30e07d4a.css.map": "/static/css/main.30e07d4a.css.map",
+    "main.b5bfe384.js.map": "/static/js/main.b5bfe384.js.map",
+    "787.64a45048.chunk.js.map": "/static/js/787.64a45048.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30e07d4a.css",
+    "static/js/main.b5bfe384.js"
+  ]
+}
