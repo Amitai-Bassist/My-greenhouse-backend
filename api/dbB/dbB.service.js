@@ -62,28 +62,7 @@ async function update(dbB) {
     }
 }
 
-async function addDbBMsg(dbBId, msg) {
-    try {
-        msg.id = utilService.makeId()
-        const collection = await dbService.getCollection('dbB')
-        await collection.updateOne({ _id: ObjectId(dbBId) }, { $push: { msgs: msg } })
-        return msg
-    } catch (err) {
-        logger.error(`cannot add dbB msg ${dbBId}`, err)
-        throw err
-    }
-}
 
-async function removeDbBMsg(dbBId, msgId) {
-    try {
-        const collection = await dbService.getCollection('dbB')
-        await collection.updateOne({ _id: ObjectId(dbBId) }, { $pull: { msgs: {id: msgId} } })
-        return msgId
-    } catch (err) {
-        logger.error(`cannot add dbB msg ${dbBId}`, err)
-        throw err
-    }
-}
 
 module.exports = {
     remove,
@@ -91,6 +70,4 @@ module.exports = {
     getById,
     add,
     update,
-    addDbBMsg,
-    removeDbBMsg
 }

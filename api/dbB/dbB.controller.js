@@ -51,55 +51,10 @@ async function updateDbB(req, res) {
   }
 }
 
-async function removeDbB(req, res) {
-  try {
-    const dbBId = req.params.id
-    const removedId = await dbBService.remove(dbBId)
-    res.send(removedId)
-  } catch (err) {
-    logger.error('Failed to remove dbB', err)
-    res.status(500).send({ err: 'Failed to remove dbB' })
-  }
-}
-
-async function addDbBMsg(req, res) {
-  const {loggedinUser} = req
-  try {
-    const dbBId = req.params.id
-    const msg = {
-      txt: req.body.txt,
-      by: loggedinUser
-    }
-    const savedMsg = await dbBService.addDbBMsg(dbBId, msg)
-    res.json(savedMsg)
-  } catch (err) {
-    logger.error('Failed to update dbB', err)
-    res.status(500).send({ err: 'Failed to update dbB' })
-
-  }
-}
-
-async function removeDbBMsg(req, res) {
-  const {loggedinUser} = req
-  try {
-    const dbBId = req.params.id
-    const {msgId} = req.params
-
-    const removedId = await dbBService.removeDbBMsg(dbBId, msgId)
-    res.send(removedId)
-  } catch (err) {
-    logger.error('Failed to remove dbB msg', err)
-    res.status(500).send({ err: 'Failed to remove dbB msg' })
-
-  }
-}
 
 module.exports = {
   getDbBs,
   getDbBById,
   addDbB,
   updateDbB,
-  removeDbB,
-  addDbBMsg,
-  removeDbBMsg
 }

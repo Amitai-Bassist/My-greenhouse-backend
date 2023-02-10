@@ -62,44 +62,11 @@ async function removeDbA(req, res) {
   }
 }
 
-async function addDbAMsg(req, res) {
-  const {loggedinUser} = req
-  try {
-    const dbAId = req.params.id
-    const msg = {
-      txt: req.body.txt,
-      by: loggedinUser
-    }
-    const savedMsg = await dbAService.addDbAMsg(dbAId, msg)
-    res.json(savedMsg)
-  } catch (err) {
-    logger.error('Failed to update dbA', err)
-    res.status(500).send({ err: 'Failed to update dbA' })
-
-  }
-}
-
-async function removeDbAMsg(req, res) {
-  const {loggedinUser} = req
-  try {
-    const dbAId = req.params.id
-    const {msgId} = req.params
-
-    const removedId = await dbAService.removeDbAMsg(dbAId, msgId)
-    res.send(removedId)
-  } catch (err) {
-    logger.error('Failed to remove dbA msg', err)
-    res.status(500).send({ err: 'Failed to remove dbA msg' })
-
-  }
-}
 
 module.exports = {
   getDbAs,
   getDbAById,
   addDbA,
   updateDbA,
-  removeDbA,
-  addDbAMsg,
-  removeDbAMsg
+  removeDbA
 }

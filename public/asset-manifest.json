@@ -1,19 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.5f5d09ab.css",
-    "main.js": "/static/js/main.4df24bb2.js",
+    "main.css": "/static/css/main.550e9dc3.css",
+    "main.js": "/static/js/main.7bbeb079.js",
     "static/js/787.64a45048.chunk.js": "/static/js/787.64a45048.chunk.js",
     "static/media/bigScreen.png": "/static/media/bigScreen.310d88ad40b3d533f896.png",
+    "static/media/atlas.png": "/static/media/atlas.2822bc63b0cac8a311c2.png",
     "static/media/androidScreen.png": "/static/media/androidScreen.7d207a317988db323128.png",
+    "static/media/front.png": "/static/media/front.3acc7621d8f572602000.png",
+    "static/media/render.png": "/static/media/render.64151650c48a93bdd93e.png",
     "static/media/backend-architecture.png": "/static/media/backend-architecture.76b49f87510e9e0b8acb.png",
-    "static/media/greenHouse.png": "/static/media/greenHouse.0555763158e2a8b2a4fc.png",
+    "static/media/task.png": "/static/media/task.44a648697ae9bef814cd.png",
     "index.html": "/index.html",
-    "main.5f5d09ab.css.map": "/static/css/main.5f5d09ab.css.map",
-    "main.4df24bb2.js.map": "/static/js/main.4df24bb2.js.map",
+    "main.550e9dc3.css.map": "/static/css/main.550e9dc3.css.map",
+    "main.7bbeb079.js.map": "/static/js/main.7bbeb079.js.map",
     "787.64a45048.chunk.js.map": "/static/js/787.64a45048.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f5d09ab.css",
-    "static/js/main.4df24bb2.js"
+    "static/css/main.550e9dc3.css",
+    "static/js/main.7bbeb079.js"
   ]
 }
