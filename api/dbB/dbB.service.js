@@ -50,10 +50,11 @@ async function add(dbB) {
 async function update(dbB) {
     try {
         const dbBToSave = {
-            vendor: dbB.vendor,
-            price: dbB.price
+            temperature: dbB.temperature,
+            humidity: dbB.humidity,
+            radiation: dbB.radiation
         }
-        const collection = await dbService.getCollection('dbB')
+        const collection = await dbService.getCollection('records')
         await collection.updateOne({ _id: ObjectId(dbB._id) }, { $set: dbBToSave })
         return dbB
     } catch (err) {
